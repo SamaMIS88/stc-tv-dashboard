@@ -20,3 +20,10 @@ df['program_desc'] = df['program_desc'].str.strip()
 df['program_genre'] = df['program_genre'].str.strip()
 df['original_name'] = df['original_name'].str.strip()
 print(df[['program_name', 'program_class', 'program_desc', 'program_genre', 'original_name']].head(10))
+df['long_session_flag'] = df['duration_hours'] > 24
+print(df['long_session_flag'].sum(), "sessions flagged as unrealistically long")
+
+print("max ID:", df['Column1'].max())
+print("actual row count:", len(df))
+df.to_csv('events_clean.csv', index=False)
+print("saved!")
