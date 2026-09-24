@@ -16,6 +16,8 @@ t3['program_name'] = t3['program_name'].str.strip()
 t3['program_genre'] = t3['program_genre'].str.strip()
 t3['date_'] = pd.to_datetime(t3['date_'])
 t3 = t3.rename(columns={'date_': 'date'})
+t3 = t3.reset_index(drop=True)
+t3['row_id'] = t3.index
 print(t3.head())
 t3.to_csv('ratings_clean.csv', index=False)
 print("T3 saved!")

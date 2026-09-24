@@ -25,5 +25,7 @@ print(df['long_session_flag'].sum(), "sessions flagged as unrealistically long")
 
 print("max ID:", df['Column1'].max())
 print("actual row count:", len(df))
+df = df.reset_index(drop=True)
+df['row_id'] = df.index
 df.to_csv('events_clean.csv', index=False)
 print("saved!")
